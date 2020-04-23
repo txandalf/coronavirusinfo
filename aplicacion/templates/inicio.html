@@ -28,6 +28,9 @@
     filter: blur(20px); // Increases the extent of the glow on hover
     opacity: 1;
   }
+  #author{
+    color: #ffffff;
+  }
   button::before {
     background: #4CAF50;
     border-radius: inherit;
@@ -58,12 +61,12 @@
 </style>
 <section id="maininfo" class="jumbotron text-center">
     <div class="container ">
-      <p class="animated heartBeat">By Aritz R</p>
+      <p id="author"class="animated heartBeat">By Aritz R</p>
       <h1>COVID 19<h2>{{country}}</h2></h1>
       </br>
       <p class="lead fs text-muted">Casos confirmados: {{data[0]}}</p>
       <p class="lead fs text-muted">Recuperados: {{data[1]}}</p>
-      <p class="lead fs text-muted">Muertes confrimadas: {{data[2]}}</p>
+      <p class="lead fs text-muted">Muertes confirmadas: {{data[2]}}</p>
       <p class="lead fs text-muted">Casos activos: {{data[3]}}</p>
     </br>
     </br>
