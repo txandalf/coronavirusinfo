@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block title %}Inicio{% endblock %}
+{% block content %}
+<style>
+  #maininfo{
+    background-color: rgb(51, 51, 51);
+  }
+  h1{
+    font-size: 70px;
+    color: #111111;
+  }
+  h2{
+    color: #2ba805;
+    font-size: 50px;
+  }
+  .fs{
+    font-size: 30px;
+  }
+  @keyframes glow {
+  0% { background-color: #2ba805; box-shadow: 0 0 5px #2ba805; }
+  50% { background-color: #49e819; box-shadow: 0 0 20px #49e819; }
+  100% { background-color: #2ba805; box-shadow: 0 0 5px #2ba805; }
+  }
+  button:hover{
+    animation: glow 1s ease-in infinite;
+  }
+  button:hover::before {
+    filter: blur(20px); // Increases the extent of the glow on hover
+    opacity: 1;
+  }
+  button::before {
+    background: #4CAF50;
+    border-radius: inherit;
+    content: '';
+    filter: blur(10px); // Controls the extent of the initial glow
+    opacity: .75;
+    position: absolute;
+    transition: all .3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1; // Set behind primary button
+  }
+  button {
+  background: #111111;
+  border: none;
+  border-radius: 25px;
+  color: #bbbbbb; // Vanilla HTML color name
+  cursor: pointer;
+  font-size: 1.25em;
+  letter-spacing: .1em;
+  outline: none;
+  padding: .75em 2em;
+  position: relative; // Required for pseudo-element positioning
+  text-transform: uppercase;
+}
+</style>
+<section id="maininfo" class="jumbotron text-center">
+    <div class="container ">
+      <h1>COVID 19<h2>{{country}}</h2></h1>
+      </br>
+      <p class="lead fs text-muted">Casos confirmados: {{data[0]}}</p>
+      <p class="lead fs text-muted">Recuperados: {{data[1]}}</p>
+      <p class="lead fs text-muted">Muertes confrimadas: {{data[2]}}</p>
+      <p class="lead fs text-muted">Casos activos: {{data[3]}}</p>
+    </br>
+    </br>
+    </br>
+      <button class="animated bounce" type="button"  data-toggle="modal" data-target="#exampleModalCenter">Cambiar Páis</button>
+      <!-- Modal -->
+      <div class="animated tada modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Cambiar País</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="{{url_for('inicio')}}" method="POST">
+                <div class="form-group">
+                 <label for="exampleFormControlSelect1">Info de paises disponibles</label>
+                 <select name="country" class="form-control" id="exampleFormControlSelect1">
+                   {% for elem in countries -%}
+                    <option>{{elem["name"]}}</option>
+                   {% endfor -%}
+                 </select>
+               </br>
+             </br>
+                 <button type="submit">Aceptar</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+{% endblock %}
