@@ -4,7 +4,7 @@ import json
 url = "https://covid-19-data.p.rapidapi.com/report/country/name"
 
 def getResponseJson(country):
-    querystring = {"date-format":"YYYY-MM-DD","format":"json","date":"2020-04-01","name":country}
+    querystring = {"date-format":"YYYY-MM-DD","format":"json","date":"2020-04-23","name":country}
     headers = {
         'x-rapidapi-host': "covid-19-data.p.rapidapi.com",
         'x-rapidapi-key': "c7e5a3b9f2mshc9af553d57c05c9p16369bjsnef8ad3b4bcfd"
