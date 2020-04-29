@@ -3,8 +3,8 @@
 
 **Página principal**
 
-![Alt Text](https://github.com/txandalf/coronavirusinfo/edit/master/covid1.png)
+![Image](https://github.com/txandalf/coronavirusinfo/edit/master/covid1.png)
 
 **Opciones disponibles**
 
-![MainPage](https://github.com/txandalf/coronavirusinfo/edit/master/covid2.png)
+![Image](https://github.com/txandalf/coronavirusinfo/edit/master/covid2.png)
